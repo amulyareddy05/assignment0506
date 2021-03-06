@@ -59,13 +59,10 @@ public class Assignment56
             totalcost = getServicesCost() + getItemsCost() + getOptionsCost();
             return totalcost;
         }
-        public void setHoursTaken(int hoursTaken)
-        {
+        public void setHoursTaken(int hoursTaken) {
             this.hours = hoursTaken;
-
         }
-        public void setFName(String fName)
-        {
+        public void setFName(String fName) {
             this.FirstName = fName;
         }
         public void setLName(String lName){
@@ -93,44 +90,41 @@ public class Assignment56
 
 
     }
-    public class Main{
-        String userName = "Will1234";
-        String password = "Will1234";
-        int tries = 0;
-        String un = JOptionPane.showInputDialog("Enter Username: ");
-        String pass = JOptionPane.showInputDialog("Enter Password:");
-            while ( ! (un.equals(userName) && pass.equals(password)) && tries < 2)
-        {
-            tries++;
-            JOptionPane.showMessageDialog(null, "Inncorrect Credentials!\nenter Again.." );
-            un = JOptionPane.showInputDialog("Enter  the userName:");
-            pass = JOptionPane.showInputDialog("Enter the Password :");
-        }
-            if(tries >= 2)
-        {
-            JOptionPane.showMessageDialog(null,"You've exceeded your try's \nGood Bye!");
-            System.exit(1);
-        }
-            try
-        {
-            String fName = JOptionPane.showInputDialog("Enter the Customers FirstName :");
-            String lName = JOptionPane.showInputDialog("Enter the Customers LastName :");
-            char pack = Character.toUpperCase(JOptionPane.showInputDialog("Enter the package selected (A or B): \n").charAt(0));
-            if (pack != 'A' && pack != 'B')
-                throw new Exception();
-            int hoursTaken = Integer.parseInt(JOptionPane.showInputDialog("Enter the hours taken :\n"));
-            int nsmallBoxes = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of small Boxes :\n"));
-            int nlargeBoxes = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of large Boxes :\n"));
-            program p = new
-                    program(fName, lName, hoursTaken, pack, nlargeBoxes, nsmallBoxes);
-            JOptionPane.showMessageDialog(null,p.getData());
-        }
-            catch (Exception e)
-        {
-            JOptionPane.showMessageDialog(null,"Wrong input, Exiting...!");
-            System.exit(1);
+    public class Main {
+        public static void main(String[] args) {
+            String userName = "Will1234";
+            String password = "Will1234";
+            int tries = 0;
+            String un = JOptionPane.showInputDialog("Enter Username: ");
+            String pass = JOptionPane.showInputDialog("Enter Password:");
+            while (!(un.equals(userName) && pass.equals(password)) && tries < 2) {
+                tries++;
+                JOptionPane.showMessageDialog(null, "Inncorrect Credentials!\nenter Again..");
+                un = JOptionPane.showInputDialog("Enter  the userName:");
+                pass = JOptionPane.showInputDialog("Enter the Password :");
+            }
+            if (tries >= 2) {
+                JOptionPane.showMessageDialog(null, "You've exceeded your try's \nGood Bye!");
+                System.exit(1);
+            }
+            try {
+                String fName = JOptionPane.showInputDialog("Enter the Customers FirstName :");
+                String lName = JOptionPane.showInputDialog("Enter the Customers LastName :");
+                char pack = Character.toUpperCase(JOptionPane.showInputDialog("Enter the package selected (A or B): \n").charAt(0));
+                if (pack != 'A' && pack != 'B')
+                    throw new Exception();
+                int hoursTaken = Integer.parseInt(JOptionPane.showInputDialog("Enter the hours taken :\n"));
+                int nsmallBoxes = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of small Boxes :\n"));
+                int nlargeBoxes = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of large Boxes :\n"));
+
+                program p = new
+                program(fName, lName, hoursTaken, pack, nlargeBoxes, nsmallBoxes);
+                JOptionPane.showMessageDialog(null, p.getData());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Wrong input, Exiting...!");
+                System.exit(1);
+            }
+
         }
     }
-
-
 }
